@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "547577bd-9af3-4da5-9ffc-f1e462b8061c",
+		"name": "Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25374401"
+	},
+	"item": [
+		{
+			"name": "Получить список наборов в карточке",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits?cardId=1",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits"
+					],
+					"query": [
+						{
+							"key": "cardId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать пустой набор",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cardId\": 1, \r\n    \"name\": \"Practicum21\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits?cardId=1",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits"
+					],
+					"query": [
+						{
+							"key": "cardId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список продуктов по имени набора",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/search?name=В+космос",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "В+космос"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить все логи сервера Яндекс. Прилавок",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/logs/main",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверить наличие товаров на складах Яндекс.Прилавок",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"id\": 5,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": 13,\r\n            \"quantity\": 3\r\n        }\r\n    ]\r\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/warehouses/check",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"warehouses",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Логи по складам",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/logs/secondary",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"secondary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить продукты в набор Яндекс.Прилавок",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 45,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/2/products",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"2",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос продуктов на складе XML",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<InputModel>\r\n  <deliveryTime>9</deliveryTime>\r\n  <product id=\"4\" quantity=\"2\" />\r\n  <product id=\"48\" quantity=\"2\" />\r\n</InputModel>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/attic/calculate.xml",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"attic",
+						"calculate.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание пользователя",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"ааааааааааааааааа\",\r\n    \"phone\": \"+89998887766\",\r\n    \"address\": \"г. Москва, ул. Пушкина, д. 10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/users",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать корзину",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 1,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить продукты в корзину",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 4,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/8",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление корзины",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/4",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список продуктов из корзины",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/11",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверка стоимости и возможности доставки",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<InputModel>\r\n    <productsCount>2</productsCount>\r\n    <productsWeight>2</productsWeight>\r\n    <deliveryTime>20</deliveryTime>\r\n</InputModel>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/fast-delivery/v3.1.1/calculate-delivery.xml",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"fast-delivery",
+						"v3.1.1",
+						"calculate-delivery.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить продукты в набор",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 1,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/kits/16/products",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kits",
+						"16",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание курьера",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"ninja\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"saske\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/courier",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание заказа Я.Самокат",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Naruto\",\r\n    \"lastName\": \"Uchiha\",\r\n    \"address\": \"ул. Фрунзенская, 34\",\r\n    \"metroStation\": 4,\r\n    \"phone\": \"+7 800 355 35 35\",\r\n    \"rentTime\": 5,\r\n    \"deliveryDate\": \"2023-02-13\",\r\n    \"comment\": \"Saske, come back to Konoha\",\r\n    \"color\": [\r\n        \"BLACK\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Принять заказ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/accept/17?courierId=1",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"accept",
+						"17"
+					],
+					"query": [
+						{
+							"key": "courierId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Логин курьера в систему",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"ninjaa\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"saske\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/courier/login",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить заказ по его номеру",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/track?t=108223",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"track"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "108223"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление курьера",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/courier/2",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"courier",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Принять заказ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/accept/7?courierId=2",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"accept",
+						"7"
+					],
+					"query": [
+						{
+							"key": "courierId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Завершить заказ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 17\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/finish/17",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"finish",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Отменить заказ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"track\": 123456\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/api/v1/orders/cancel",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
